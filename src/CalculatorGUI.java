@@ -1,8 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 
-import static java.awt.Color.BLACK;
-
 public class CalculatorGUI extends JFrame {
 
     private JTextField displayField;
@@ -13,21 +11,23 @@ public class CalculatorGUI extends JFrame {
         setPreferredSize(CommonConstants.GUI_SIZE);
         pack();
         setLocationRelativeTo(null);
-        setResizable(false);
-        setLocationRelativeTo(null);
+        setResizable(true);
 
-        addDisplayField();
+
         addComponent();
+        addDisplayField();
+
     }
 
     private void addDisplayField() {
 
         JPanel panelField = new JPanel();
+        panelField.setBounds(0,30,CommonConstants.GUI_SIZE.width,CommonConstants.GUI_SIZE.height);
         displayField = new JTextField(30);
         displayField.setEditable(false);
         displayField.setText("0");
         displayField.setHorizontalAlignment(SwingConstants.RIGHT);
-        displayField.setFont(new Font("Arial", Font.PLAIN, 26));
+        displayField.setFont(new Font("Arial", Font.PLAIN, 20));
 
         panelField.add(displayField);
 
@@ -39,9 +39,11 @@ public class CalculatorGUI extends JFrame {
 
         //panel
         JPanel panelButtons = new JPanel();
+        panelButtons.setBounds(0,70,CommonConstants.GUI_SIZE.width,CommonConstants.GUI_SIZE.height);
 
         //gridlayout
         GridLayout layout = new GridLayout(5, 4,5,5);
+
         panelButtons.setLayout(layout);
         panelButtons.add(new JButton("/"));
         panelButtons.add(new JButton("*"));
