@@ -1,8 +1,12 @@
+import javax.swing.*;
 
 public class CalculatorApp {
     public static void main(String[] args) {
 
-        System.out.println("Teste");
-
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new CalculatorGUI().setVisible(true);
+            }
+        });
         }
     }
